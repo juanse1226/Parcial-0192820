@@ -101,25 +101,29 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
   border-bottom: 0;
   border-radius: 44px 44px 0 0;
   overflow: hidden;
-  background: #8aa5b5; /* color del cielo: rellena el espacio de arriba */
+  background: #8aa5b5; 
+  /* Mejora visual: una sombra sutil le da efecto 3D y resalta sobre el fondo verde */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
-
 .pantalla {
   width: 100%;
-  height: calc(100% - 70px); /* resta los 70px que bajamos la imagen */
-  margin-top: 70px;          /* baja la imagen para dejar espacio a la barra */
+  height: calc(100% - 48px);
+  margin-top: 48px;
   object-fit: cover;
   object-position: top;
 }
 
+
 .barra-estado {
   position: absolute;
-  top: 0;
-  left: 12px;                /* separa la hora del borde redondeado */
-  width: calc(100% - 24px);  /* 12px de margen a cada lado */
-  height: 48px;
+  top: 8px;                  /* Lo bajamos ligeramente para que no choque con la curva superior */
+  left: 14px;                /* Ampliamos un poco el margen izquierdo */
+  width: calc(100% - 28px);  /* Ajustamos el ancho proporcional */
+  height: 40px;
   object-fit: contain;
+  z-index: 10;               /* Asegura que siempre esté por encima de la imagen */
 }
+
 .logos {
   display: flex;
   align-items: center;
