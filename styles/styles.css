@@ -101,14 +101,28 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
   border-bottom: 0;
   border-radius: 44px 44px 0 0;
   overflow: hidden;
-  background: #8aa5b5; 
-  /* Mejora visual: una sombra sutil le da efecto 3D y resalta sobre el fondo verde */
+  background: #8aa5b5;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.telefono::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 24px;
+  background: #111;
+  border-radius: 12px;
+  z-index: 2;
 }
 .pantalla {
   width: 100%;
-  height: calc(100% - 48px);
-  margin-top: 48px;
+  height: 100%;
+  margin-top: 0; /* Ya no necesita dejar el espacio forzado de la imagen anterior */
   object-fit: cover;
   object-position: top;
 }
