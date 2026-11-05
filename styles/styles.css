@@ -47,7 +47,16 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 16px;
 }
 
-h1.titulo-serif { font-size: 6rem; }
+h1.titulo-serif {
+  font-family: "EB Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(4rem, 11vw, 10rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
 h3 { font-size: 1.2rem; margin-bottom: 8px; }
 
 .etiqueta { color: var(--gris); margin-bottom: 12px; }
@@ -64,11 +73,6 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
 
 /* ===== 3. ENCABEZADO ===== */
 .encabezado {
-  position: sticky; /* se queda fijo arriba al hacer scroll */
-  top: 0;
-  background: var(--fondo);
-  border-bottom: 1px solid var(--borde);
-  z-index: 10;
 }
 
 .barra {
@@ -79,7 +83,25 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
 }
 
 .logo { font-size: 1.4rem; font-weight: 700; }
+
 .menu { display: flex; gap: 24px; color: var(--gris); }
+
+.encabezado .menu {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  padding: 14px 32px;
+  border-radius: 999px;
+  color: var(--texto);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
 
 /* ===== 4. INICIO ===== */
 .escenario {
@@ -141,6 +163,7 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
 .logos {
   display: flex;
   align-items: center;
+  justify-content: center;  /* centra la fila completa */
   flex-wrap: wrap;
   gap: 32px;
   margin-top: 40px;
@@ -284,7 +307,6 @@ blockquote {
 
 /* ===== 11. PANTALLAS PEQUEÑAS (celular y tablet) ===== */
 @media (max-width: 900px) {
-  h1.titulo-serif { font-size: 3.5rem; }
   .titulo-serif { font-size: 2.5rem; }
   .menu { display: none; }
   .tarjetas { grid-template-columns: 1fr 1fr; }
