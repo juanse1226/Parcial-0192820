@@ -105,42 +105,28 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
 
 /* ===== 4. INICIO ===== */
 .escenario {
-  margin-top: 40px;
-  min-height: 480px;
+  position: relative;
+  margin-top: 200px;   /* espacio para que la tablet sobresalga */
+  height: 320px;
   border-radius: 28px;
-  background: #3f6b5a;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-top: 40px;
+  background: #8f9e78; /* verde salvia, aproximado de tu referencia */
 }
 
 .telefono {
-  position: relative;
-  width: 280px;
-  height: 440px;
-  border: 8px solid #111;
-  border-bottom: 0;
-  border-radius: 44px 44px 0 0;
-  overflow: hidden;
-  background: #8aa5b5;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-}
-
-.telefono::before {
-  content: "";
   position: absolute;
-  top: 12px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 90px;
-  height: 24px;
-  background: #111;
-  border-radius: 12px;
-  z-index: 2;
+  width: 70%;
+  aspect-ratio: 1130 / 650;
+  border: 22px solid #0a0a0a;
+  border-bottom: 0;
+  border-radius: 36px 36px 0 0;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
+
 .pantalla {
   width: 100%;
   height: 100%;
@@ -148,6 +134,75 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
   object-fit: cover;
   object-position: top;
 }
+
+/* Hace que las unidades cqw midan relativo al ancho de la tablet */
+.telefono { container-type: inline-size; }
+
+.datos {
+  position: absolute;
+  inset: 0;
+  color: #fff;
+}
+
+.migas {
+  position: absolute;
+  top: 6%;
+  left: 4%;
+  font-size: 1.1cqw;
+  opacity: 0.85;
+}
+
+.kpi {
+  position: absolute;
+  top: 14%;
+  left: 4%;
+  display: flex;
+  align-items: baseline;
+  gap: 2cqw;
+  font-family: "Instrument Serif", serif;
+}
+.kpi-num { font-size: 6.5cqw; line-height: 1; }
+.kpi-texto { font-size: 2.6cqw; }
+
+.filtro {
+  position: absolute;
+  top: 17%;
+  right: 4%;
+  font-size: 1.2cqw;
+  padding: 0.9cqw 2cqw;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.anios {
+  position: absolute;
+  top: 33%;
+  left: 4%;
+  right: 4%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1cqw;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  padding-top: 1.5cqw;
+}
+
+.punto {
+  position: absolute;
+  width: 1px;
+  background: #fff;
+}
+.punto::before,
+.punto::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.9cqw;
+  height: 0.9cqw;
+  background: #fff;
+}
+.punto::before { top: 0; }
+.punto::after  { bottom: 0; }
 
 
 .barra-estado {
@@ -212,6 +267,8 @@ h3 { font-size: 1.2rem; margin-bottom: 8px; }
 
 .lista li:last-child { border-bottom: 1px solid var(--borde); }
 .lista b { color: var(--gris); font-weight: 500; }
+
+
 
 /* ===== 6. ESPECIFICACIONES ===== */
 #especificaciones .dos-columnas { margin-top: 0; }
@@ -311,6 +368,8 @@ blockquote {
   .menu { display: none; }
   .tarjetas { grid-template-columns: 1fr 1fr; }
   .dos-columnas, .testimonio, .pasos { grid-template-columns: 1fr; }
+  .escenario { margin-top: 100px; height: 200px; }
+  .telefono { width: 92%; border-width: 12px; border-radius: 24px 24px 0 0; }
 }
 
 @media (max-width: 560px) {
